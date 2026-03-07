@@ -11,16 +11,23 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
 
+    @Column(nullable = false)
     private Long productId;
+
+    @Column(nullable = false)
     private int quantity;
+
+    @Column(nullable = false)
     private double totalPrice;
 
     private LocalDateTime orderDate = LocalDateTime.now();
 
-    // 🔹 GETTERS & SETTERS
-
     public Long getOrderId() {
         return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public Long getProductId() {
