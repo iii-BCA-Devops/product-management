@@ -1,80 +1,99 @@
 # Textile Product Management – Backend
 
 ## 📌 Project Overview
-This is the backend service for the **Textile Product Management System**.  
-It is built using **Spring Boot** and provides REST APIs to manage products and orders.
+This project is the **backend service** for the Textile Product Management System.  
+It is developed using **Spring Boot** and provides REST APIs to manage products and orders.
 
-The backend uses an **H2 in-memory database** (NO MySQL) for simplicity and fast setup, making it ideal for demos and academic evaluation.
-
----
-
-## 🏗️ Architecture
-Client (React Frontend)
-|
-| REST API
-v
-Spring Boot Backend
-|
-v
-H2 Database
+The backend is containerized using **Docker**, analyzed using **SonarCloud**, and deployed on **Render** as part of the DevOps workflow.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
+
+### Backend Development
 - Java 17
 - Spring Boot
-- Spring Web
 - Spring Data JPA
-- H2 In-Memory Database
-- Docker
 - Maven
 
----
+### Database
+- H2 Database / MySQL
 
-## 🗄️ Database Used
-- **H2 Database (In-Memory)**
-- No external database required
-- Data resets on application restart
+### DevOps Tools
+- **Docker** – Used to containerize the backend application.
+- **SonarCloud** – Used for static code analysis to detect bugs, vulnerabilities, and code smells.
+- **Render** – Used to deploy and host the backend application.
 
-### H2 Console
-- URL: `http://localhost:8081/h2-console`
-- JDBC URL: `jdbc:h2:mem:testdb`
-- Username: `sa`
-- Password: *(empty)*
-
----
-
-## 🚀 API Endpoints
-
-### Products
-| Method | Endpoint | Description |
-|------|---------|------------|
-| GET | `/api/products` | Get all products |
-| POST | `/api/products` | Add new product |
-| PUT | `/api/products/{id}` | Update product |
-| DELETE | `/api/products/{id}` | Delete product |
-
-### Orders
-| Method | Endpoint | Description |
-|------|---------|------------|
-| POST | `/api/orders` | Place an order |
-| GET | `/api/orders` | View order history |
+### Version Control
+- Git
+- GitHub
 
 ---
 
-## ⚙️ Running Locally (Without Docker)
+## 🐳 Docker Support
 
-```bash
-mvn clean install
-#Docker
-<img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/56d67b90-e12f-454d-bdc9-c5e5a765d2df" />
-#Deployment
+Docker is used to containerize the backend application for easy deployment.
 
-Dockerized backend
+### Build Docker Image
 
-Deployment
-live url
-https://textile-ui.vercel.app
-Deployed using container-based hosting (Render / Docker runtime)
-mvn spring-boot:run
+```
+docker build -t textile-backend .
+```
+
+### Run Docker Container
+
+```
+docker run -p 8080:8080 textile-backend
+```
+
+Application will run at:
+
+```
+http://localhost:8080
+```
+Docker Image 
+
+<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/f791bbbc-8795-4cc4-b390-aa40794c78fd" />
+
+---
+
+## 🔍 Code Quality – SonarCloud
+
+Code quality and security analysis are performed using **SonarCloud**.
+
+SonarCloud automatically scans the codebase and detects:
+
+- Bugs
+- Security vulnerabilities
+- Code smells
+- Maintainability issues
+
+### SonarCloud Dashboard
+View the analysis report here:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a5ff2541-261f-4eff-b29c-70c980f388e1" />
+
+### Quality Gate Status
+
+✔ Passed  
+Security → A  
+Reliability → A  
+Maintainability → A  
+
+---
+
+## 🚀 Deployment – Render
+
+The backend application is deployed on **Render**.
+
+Deployment platform:
+- Render Cloud Platform
+
+Backend Live URL:
+
+```
+https://your-backend-url.onrender.com
+```
+
+---
 
